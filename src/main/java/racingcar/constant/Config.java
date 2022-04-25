@@ -5,4 +5,5 @@ public class Config {
     public static final int MOVING_STANDARD_NUM = 3;
     public static final int RANDOM_MIN = 0;
     public static final int RANDOM_MAX = 9;
+    public static final int MAX_CAR_NAME = 5;
 }
