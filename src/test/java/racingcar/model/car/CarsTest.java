@@ -15,7 +15,7 @@ public class CarsTest {
         Cars cars = new Cars();
 
         //when
-        String input = "test1,test2,test3";
+        String[] input = {"test1", "test2", "test3"};
         cars.createCarList(input);
 
         //then
@@ -25,7 +25,7 @@ public class CarsTest {
     @Test
     @DisplayName("자동차 레이스를 호출하면 자동차리스트에 있는 각 자동차객체에 distance 랜덤값이 입력된다. " +
             "RANDOM값이 4,3이면 distance는 1,0이다")
-    void 자동차레이스_기능1() {
+    void 자동차레이스_기능() {
         //given
         Cars cars = new Cars();
 
@@ -33,7 +33,7 @@ public class CarsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     //when
-                    String input = "test1,test2";
+                    String[] input = {"test1", "test2"};
                     cars.createCarList(input);
                     cars.race();
 
@@ -42,6 +42,27 @@ public class CarsTest {
                     Assertions.assertThat(cars.getCars().get(0).getPosition()).isEqualTo("-");
                     Assertions.assertThat(cars.getCars().get(1).getDistance()).isEqualTo(0);
                     Assertions.assertThat(cars.getCars().get(1).getPosition()).isEqualTo("");
+                },
+                4, 3
+        );
+    }
+
+    @Test
+    @DisplayName("자동차 리스트가 test1,test2이고 RANDOM값이 4,3이면 우승자는 test1이다.")
+    void 자동차_우승자_구하기_기능() {
+        //given
+        Cars cars = new Cars();
+
+        //then
+        assertRandomNumberInRangeTest(
+                () -> {
+                    //when
+                    String[] input = {"test1", "test2"};
+                    cars.createCarList(input);
+                    cars.race();
+
+                    //then
+                    Assertions.assertThat(cars.getWinnners().get(0).getName()).isEqualTo("test1");
                 },
                 4, 3
         );
