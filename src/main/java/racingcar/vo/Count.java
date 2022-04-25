@@ -15,10 +15,18 @@ public class Count extends Base {
 
     @Override
     protected void validate() {
+        int num;
+
         try {
-            this.count = Integer.parseInt(this.input);
+            num = Integer.parseInt(this.input);
         } catch (NumberFormatException error) {
             throw new IllegalArgumentException(Message.ERROR_INVLAID_COUNT);
         }
+
+        if(num < 1) {
+            throw new IllegalArgumentException(Message.ERROR_INVLAID_COUNT);
+        }
+
+        this.count = num;
     }
 }

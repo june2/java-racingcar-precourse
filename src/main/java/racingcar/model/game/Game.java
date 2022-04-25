@@ -1,15 +1,19 @@
 package racingcar.model.game;
 
 public class Game extends GameConfig {
-    private boolean isRunning = true;
-    private int count = 0;
+    private boolean isRunning;
+    private int raceCount;
+
+    public Game() {
+        this.isRunning = true;
+        this.raceCount = 0;
+    }
 
     private void end() {
         this.isRunning = false;
     }
 
     private void input() {
-        // 게임 시작
         this.view.inputName();
         try {
             this.player.inputCarNames();
@@ -33,9 +37,9 @@ public class Game extends GameConfig {
         this.view.outputRace();
         do {
             cars.race();
-            this.count++;
+            this.raceCount++;
             this.view.outputRaceCars(cars.getCars());
-        } while (this.player.getCount() != this.count);
+        } while (this.player.getCount() != this.raceCount);
     }
 
     private void output() {
@@ -43,9 +47,13 @@ public class Game extends GameConfig {
     }
 
     private void run() {
+        // 게임 시작 값 입력
         this.input();
+        // race 시작
         this.race();
+        // 게임 결과 출력
         this.output();
+        // 게임 종료
         this.end();
     }
 
