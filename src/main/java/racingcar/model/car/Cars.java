@@ -1,5 +1,8 @@
 package racingcar.model.car;
 
+import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.constant.Config;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,5 +18,11 @@ public class Cars {
         for (String name : names) {
             cars.add(new Car(name));
         }
+    }
+
+    public void race() {
+        cars.forEach(car -> {
+            car.setDistance(Randoms.pickNumberInRange(Config.RANDOM_MIN, Config.RANDOM_MAX));
+        });
     }
 }
