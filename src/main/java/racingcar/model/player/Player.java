@@ -1,5 +1,6 @@
 package racingcar.model.player;
 
+import camp.nextstep.edu.missionutils.Console;
 import racingcar.constant.Config;
 import racingcar.constant.Message;
 
@@ -29,14 +30,15 @@ public class Player {
         return count;
     }
 
-    public void inputCarNames(String input) {
+    public void inputCarNames() {
+        String input = Console.readLine();
         this.carNames = input.split(",");
         for (String carName : this.carNames) {
             this.validateName(carName);
         }
     }
 
-    public void inputCount(String input) {
-        this.count = this.validateCount(input);
+    public void inputCount() {
+        this.count = this.validateCount(Console.readLine());
     }
 }
