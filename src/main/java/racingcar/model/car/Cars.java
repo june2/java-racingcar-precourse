@@ -29,7 +29,7 @@ public class Cars {
 
     public void createCarList(List<CarName> carNames) {
         for (CarName carName : carNames) {
-            cars.add(new Car(carName.getCarName()));
+            cars.add(new Car(carName));
         }
     }
 

@@ -3,6 +3,7 @@ package racingcar.model.car;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import racingcar.vo.CarName;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -17,7 +18,7 @@ public class CarTest {
     })
     void getPosition_검증(int input, int distance, String position) {
         //given
-        Car car = new Car("Test");
+        Car car = new Car(new CarName("Test"));
 
         //when
         car.setDistance(input);

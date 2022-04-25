@@ -1,18 +1,19 @@
 package racingcar.model.car;
 
 import racingcar.constant.Config;
+import racingcar.vo.CarName;
 
 public class Car {
-    private String name;
+    private CarName carName;
     private StringBuilder position;
     private int distance;
 
     public String getName() {
-        return name;
+        return this.carName.getCarName();
     }
 
-    public Car(String name) {
-        this.name = name;
+    public Car(CarName carName) {
+        this.carName = carName;
         this.distance = 0;
         this.position = new StringBuilder("");
     }
