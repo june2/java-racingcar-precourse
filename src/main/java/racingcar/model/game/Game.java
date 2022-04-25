@@ -32,7 +32,6 @@ public class Game extends GameConfig {
     }
 
     private void race() {
-        // race
         cars.createCarList(this.player.getCarNames());
         this.view.outputRace();
         do {
