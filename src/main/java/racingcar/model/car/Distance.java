@@ -1,7 +1,7 @@
 package racingcar.model.car;
 
 public class Distance {
-    private int distance;
+    protected int distance;
 
     public Distance() {
         this.distance = 0;
