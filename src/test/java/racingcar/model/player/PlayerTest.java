@@ -22,7 +22,7 @@ public class PlayerTest extends NsTest {
                 player.inputCarNames();
 
                 //then
-                assertThat(player.getCarNames().length).isEqualTo(3);
+                assertThat(player.getCarNames().size()).isEqualTo(3);
             }
         );
     }

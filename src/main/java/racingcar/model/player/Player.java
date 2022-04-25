@@ -1,44 +1,29 @@
 package racingcar.model.player;
 
 import camp.nextstep.edu.missionutils.Console;
-import racingcar.constant.Config;
-import racingcar.constant.Message;
+import racingcar.vo.CarName;
+import racingcar.vo.Count;
+import racingcar.vo.CarNames;
+
+import java.util.List;
 
 public class Player {
-    private String[] carNames;
-    private int count;
+    private CarNames carNames;
+    private Count count;
 
-    private void validateName(String name) {
-        if (name.length() > Config.MAX_CAR_NAME) {
-            throw new IllegalArgumentException(Message.ERROR_INVLAID_CAR_NAMES);
-        }
-    }
-
-    private int validateCount(String count) {
-        try {
-            return Integer.parseInt(count);
-        } catch (NumberFormatException error) {
-            throw new IllegalArgumentException(Message.ERROR_INVLAID_COUNT);
-        }
-    }
-
-    public String[] getCarNames() {
-        return carNames;
+    public List<CarName> getCarNames() {
+        return this.carNames.getCarNames();
     }
 
     public int getCount() {
-        return count;
+        return count.getCount();
     }
 
     public void inputCarNames() {
-        String input = Console.readLine();
-        this.carNames = input.split(",");
-        for (String carName : this.carNames) {
-            this.validateName(carName);
-        }
+        this.carNames = new CarNames(Console.readLine());
     }
 
     public void inputCount() {
-        this.count = this.validateCount(Console.readLine());
+        this.count = new Count(Console.readLine());
     }
 }

@@ -2,6 +2,7 @@ package racingcar.model.car;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Config;
+import racingcar.vo.CarName;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -26,9 +27,9 @@ public class Cars {
         return cars;
     }
 
-    public void createCarList(String[] names) {
-        for (String name : names) {
-            cars.add(new Car(name));
+    public void createCarList(List<CarName> carNames) {
+        for (CarName carName : carNames) {
+            cars.add(new Car(carName.getCarName()));
         }
     }
 

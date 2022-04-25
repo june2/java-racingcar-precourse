@@ -3,6 +3,11 @@ package racingcar.model.car;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.vo.CarName;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -15,8 +20,8 @@ public class CarsTest {
         Cars cars = new Cars();
 
         //when
-        String[] input = {"test1", "test2", "test3"};
-        cars.createCarList(input);
+        List<CarName> carNames = Arrays.asList(new CarName("test1"), new CarName("test2"), new CarName("test3"));
+        cars.createCarList(carNames);
 
         //then
         assertThat(cars.getCars().size()).isEqualTo(3);
@@ -33,8 +38,8 @@ public class CarsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     //when
-                    String[] input = {"test1", "test2"};
-                    cars.createCarList(input);
+                    List<CarName> carNames = Arrays.asList(new CarName("test1"), new CarName("test2"));
+                    cars.createCarList(carNames);
                     cars.race();
 
                     //then
@@ -57,8 +62,8 @@ public class CarsTest {
         assertRandomNumberInRangeTest(
                 () -> {
                     //when
-                    String[] input = {"test1", "test2"};
-                    cars.createCarList(input);
+                    List<CarName> carNames = Arrays.asList(new CarName("test1"), new CarName("test2"));
+                    cars.createCarList(carNames);
                     cars.race();
 
                     //then
