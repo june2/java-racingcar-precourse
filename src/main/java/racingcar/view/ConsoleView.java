@@ -27,7 +27,12 @@ public class ConsoleView {
     }
 
     public void outputResult(List<Car> winners) {
-        String result = winners.stream().map(Car::getName).collect(Collectors.joining(", "));
+        StringBuilder result = new StringBuilder();
+        winners.forEach(car -> {
+            result.append(car.getName());
+            result.append(", ");
+        });
+
         System.out.println(Message.OUTPUT_RESULT + result);
     }
 

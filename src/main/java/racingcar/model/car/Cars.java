@@ -4,8 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms;
 import racingcar.constant.Config;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Cars {
     private List<Car> cars;
@@ -41,6 +41,14 @@ public class Cars {
 
 
     public List<Car> getWinnners() {
-        return this.cars.stream().filter(car -> car.getDistance() == this.highestDistance).collect(Collectors.toList());
+        List<Car> winner = new LinkedList<>();
+
+        this.cars.forEach(car -> {
+            if (car.getDistance() == this.highestDistance) {
+                winner.add(car);
+            }
+        });
+
+        return winner;
     }
 }
