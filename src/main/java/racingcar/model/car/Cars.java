@@ -10,17 +10,11 @@ import java.util.List;
 
 public class Cars {
     private List<Car> cars;
-    private int highestDistance;
-
-    private void setHighestDistance(int distance) {
-        if (distance > this.highestDistance) {
-            this.highestDistance = distance;
-        }
-    }
+    private LongestDistance longestDistance;
 
     public Cars() {
         this.cars = new ArrayList<>();
-        this.highestDistance = 0;
+        this.longestDistance = new LongestDistance();
     }
 
     public List<Car> getCars() {
@@ -36,7 +30,7 @@ public class Cars {
     public void race() {
         cars.forEach(car -> {
             car.setDistance(Randoms.pickNumberInRange(Config.RANDOM_MIN, Config.RANDOM_MAX));
-            this.setHighestDistance(car.getDistance());
+            this.longestDistance.setDistance(car.getDistance());
         });
     }
 
@@ -45,7 +39,7 @@ public class Cars {
         List<Car> winner = new LinkedList<>();
 
         this.cars.forEach(car -> {
-            if (car.getDistance() == this.highestDistance) {
+            if (car.getDistance() == this.longestDistance.getDistance()) {
                 winner.add(car);
             }
         });
