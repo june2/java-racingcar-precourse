@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -18,13 +19,14 @@ class ApplicationTest extends NsTest {
         assertRandomNumberInRangeTest(
             () -> {
                 run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자는 pobi 입니다.");
+                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자: pobi");
             },
             MOVING_FORWARD, STOP
         );
     }
 
     @Test
+    @DisplayName("Player 차동자이름에 5자리 이상의 값을 입력시 에러 발생시킨다.")
     void 이름에_대한_예외_처리() {
         assertSimpleTest(
             () -> {

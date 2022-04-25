@@ -12,9 +12,21 @@ public class Game extends GameConfig {
     private void run() {
         // 게임 시작
         this.view.inputName();
-        this.player.inputCarNames();
+
+        try {
+            this.player.inputCarNames();
+        } catch (IllegalArgumentException exception) {
+            this.view.outputError(exception.getMessage());
+            this.player.inputCarNames();
+        }
+
         this.view.inputCount();
-        this.player.inputCount();
+        try {
+            this.player.inputCount();
+        } catch (IllegalArgumentException exception) {
+            this.view.outputError(exception.getMessage());
+            this.player.inputCount();
+        }
 
         // race
         cars.createCarList(this.player.getCarNames());

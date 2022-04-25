@@ -30,4 +30,8 @@ public class ConsoleView {
         String result = winners.stream().map(Car::getName).collect(Collectors.joining(","));
         System.out.println(Message.OUTPUT_RESULT + result);
     }
+
+    public void outputError(String message) {
+        System.out.println(message);
+    }
 }
