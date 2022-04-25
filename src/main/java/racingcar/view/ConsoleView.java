@@ -4,7 +4,6 @@ import racingcar.constant.Message;
 import racingcar.model.car.Car;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ConsoleView {
     public void inputName() {
