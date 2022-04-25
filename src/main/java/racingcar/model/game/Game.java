@@ -8,11 +8,9 @@ public class Game extends GameConfig {
         this.isRunning = false;
     }
 
-
-    private void run() {
+    private void input() {
         // 게임 시작
         this.view.inputName();
-
         try {
             this.player.inputCarNames();
         } catch (IllegalArgumentException exception) {
@@ -27,7 +25,9 @@ public class Game extends GameConfig {
             this.view.outputError(exception.getMessage());
             this.player.inputCount();
         }
+    }
 
+    private void race() {
         // race
         cars.createCarList(this.player.getCarNames());
         this.view.outputRace();
@@ -36,9 +36,16 @@ public class Game extends GameConfig {
             this.count++;
             this.view.outputRaceCars(cars.getCars());
         } while (this.player.getCount() != this.count);
+    }
 
-        // output
+    private void output() {
         this.view.outputResult(this.cars.getWinnners());
+    }
+
+    private void run() {
+        this.input();
+        this.race();
+        this.output();
         this.end();
     }
 

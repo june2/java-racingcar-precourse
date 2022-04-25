@@ -7,5 +7,5 @@ public class Message {
     public static final String OUTPUT_RESULT = "최종 우승자: ";
 
     public static final String ERROR_INVLAID_CAR_NAMES = "[ERROR] 잘못된 자동차 이름입니다.";
-    public static final String ERROR_INVLAID_COUNT = "[ERROR] 잘못된 숫자입니다.";
+    public static final String ERROR_INVLAID_COUNT = "[ERROR] 시도 횟수는 숫자이어야 합니다.";
 }
