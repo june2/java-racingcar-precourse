@@ -29,10 +29,10 @@ class ApplicationTest extends NsTest {
     @DisplayName("Player 차동자이름에 5자리 이상의 값을 입력시 에러메시지를 출력한다.")
     void 이름에_대한_예외_처리() {
         assertSimpleTest(
-            () -> {
-                runException("pobi,javaji");
-                assertThat(output()).contains(ERROR_MESSAGE);
-            }
+                () -> {
+                    runException("pobi,javaji");
+                    assertThat(output()).contains(ERROR_MESSAGE);
+                }
         );
     }
 
